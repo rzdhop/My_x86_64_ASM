@@ -1,5 +1,5 @@
 BITS 64
-
+;%include "assets/fuction.inc"
 SYS_EXIT equ 0x3c
 SYS_WRITE equ 0x01
 STDOUT equ 0x01

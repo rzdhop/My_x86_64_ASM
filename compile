@@ -1,0 +1,20 @@
+#!/bin/bash
+clear;echo;
+if [ "$#" -ne "1" ]; then 
+	echo -e "\e[31mError please use the compile script properly\e[33m [./compile <*.asm>] \e[31m! ";
+	exit 1;
+fi
+
+echo -e "\e[33m[verbose] \e[34mAssembling $1 into <Object file>. \e[31m";
+
+tmp_array=(${1//./ })
+nasm -f elf64 $1 -o obj_File/${tmp_array[0]}.o;
+
+echo -e "\e[33m[+] \e[32mDone Assembling";
+
+echo -e "\e[33m[verbose] \e[34mCompiling <Object file> into executable elf.\e[31m";
+
+ld obj_File/"${tmp_array[0]}".o -o bin/"${tmp_array[0]}"
+
+echo -e "\e[33m[+] \e[32mDone Compiling\n"
+

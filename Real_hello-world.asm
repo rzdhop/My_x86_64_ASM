@@ -18,7 +18,7 @@ _print:
 	push rax
 	mov rbx, 0
 _printloop:
-	inc rbx
+	inc rbx  ;contien sizeof([text])
 	inc rax
 	mov cl, [rax]
 	cmp cl, 0
